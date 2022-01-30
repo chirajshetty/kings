@@ -10,12 +10,15 @@ public class GreetingController {
 
 	@GetMapping("/greeting")
 	public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+		
 		model.addAttribute("name", name);
+		model.addAttribute("sudoku", new SudokuSolver().sudoku());
 		return "greeting";
 	}
 	
-//	@GetMapping("/")
-//	public String index() {
+//	@GetMapping("/sudoku")
+//	public String index(Model model) {
+//		model.addAttribute("name", name);
 //		return "index";
 //	}
 
