@@ -7,6 +7,7 @@ import java.time.Instant;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.data.PersonalInfo;
 
@@ -14,10 +15,10 @@ import com.example.demo.data.PersonalInfo;
  * @author Chiraj
  *
  */
+@Service
 public class ResumeService implements IResumeService {
 	
-	@Autowired
-	private PersonalInfo personalInfo;
+	PersonalInfo personalInfo = new PersonalInfo();
 
 	public String getName() {
 		return personalInfo.getFullName();
