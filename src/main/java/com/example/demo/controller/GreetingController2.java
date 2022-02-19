@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.data.PersonalInfo;
+import com.example.demo.data.Resume;
 import com.example.demo.services.ResumeService;
 
 @RestController
@@ -20,7 +20,7 @@ public class GreetingController2 {
 	}
 
 	@GetMapping("/resume")
-	public PersonalInfo resume() {
+	public Resume resume() {
 		resumeService.setDummyDetails();
 		return resumeService.getDetails();
 	}

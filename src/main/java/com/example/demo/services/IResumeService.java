@@ -4,6 +4,7 @@
 package com.example.demo.services;
 
 import com.example.demo.data.PersonalInfo;
+import com.example.demo.data.Resume;
 
 /**
  * @author Chiraj
@@ -11,10 +12,7 @@ import com.example.demo.data.PersonalInfo;
  */
 public interface IResumeService {
 	
-	public String getName();
-	public Integer getAge();
-	public PersonalInfo getDetails();
-	public void setDetails(PersonalInfo personalInfo);
 	public void setDummyDetails();
+	public Resume getDetails();
 
 }
