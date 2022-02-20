@@ -21,31 +21,36 @@ public class JSONtoPOJO {
 	 * @param args  
 	 */  
 	public static void main(String[] args) {  
-		String packageName="com.example.demo";  
-		File inputJson= new File("input.json");  
+		String packageName="com.example.demo.data";  
+		File inputJson= new File("resume.json");  
 		File outputPojoDirectory=new File("."+File.separator+"convertedPojo");  
 		outputPojoDirectory.mkdirs();  
 		try {  
-			new JSONtoPOJO().convert2JSON(inputJson.toURI().toURL(), outputPojoDirectory, packageName, inputJson.getName().replace(".json", ""));  
+			new JSONtoPOJO().convertJsonToJavaClass(inputJson.toURI().toURL(), outputPojoDirectory, packageName, inputJson.getName().replace(".json", ""));  
 		} catch (IOException e) {  
 			System.out.println("Encountered issue while converting to pojo: "+e.getMessage());  
 			e.printStackTrace();  
 		}  
 	}  
-	public void convert2JSON(URL inputJson, File outputPojoDirectory, String packageName, String className) throws IOException{  
-		JCodeModel codeModel = new JCodeModel();  
-		URL source = inputJson;  
-		GenerationConfig config = new DefaultGenerationConfig() {  
-			@Override  
-			public boolean isGenerateBuilders() { // set config option by overriding method  
-				return true;  
-			}  
-			public SourceType getSourceType(){  
-				return SourceType.JSON;  
-			}  
-		};  
-		SchemaMapper mapper = new SchemaMapper(new RuleFactory(config, new Jackson2Annotator(config), new SchemaStore()), new SchemaGenerator());  
-		mapper.generate(codeModel, className, packageName, source);  
-		codeModel.build(outputPojoDirectory);  
-	}  
+	public void convertJsonToJavaClass(URL inputJsonUrl, File outputJavaClassDirectory, String packageName, String javaClassName) 
+			throws IOException {
+		JCodeModel jcodeModel = new JCodeModel();
+
+		GenerationConfig config = new DefaultGenerationConfig() {
+			@Override
+			public boolean isGenerateBuilders() {
+				return true;
+			}
+
+			@Override
+			public SourceType getSourceType() {
+				return SourceType.JSON;
+			}
+		};
+
+		SchemaMapper mapper = new SchemaMapper(new RuleFactory(config, new Jackson2Annotator(config), new SchemaStore()), new SchemaGenerator());
+		mapper.generate(jcodeModel, javaClassName, packageName, inputJsonUrl);
+
+		jcodeModel.build(outputJavaClassDirectory);
+	}
 }

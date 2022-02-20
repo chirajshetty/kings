@@ -1,0 +1,54 @@
+{
+	"id": 32134,
+	"basicInfo": {
+		"firstName": "Chiraj",
+		"lastName": "Chiraj",
+		"middleName": "Chiraj",
+		"fullName": "Chiraj",
+		"DateOfBirth": "15-Sep-2000"
+	},
+	"education": [
+		{
+			"school": "Chiraj",
+			"from": "2000",
+			"till": "2000",
+			"level": "highschool"
+		},
+		{
+			"school": "Chiraj",
+			"from": "2000",
+			"till": "2000",
+			"level": "graduation"
+		}
+	],
+	"work": [
+		{
+			"company": "Chiraj",
+			"from": "Sep-2000",
+			"till": "Sep-2000",
+			"type": "internship"
+		},
+		{
+			"company": "Chiraj",
+			"from": "Sep-2000",
+			"till": "Sep-2000",
+			"type": "internship"
+		},
+		{
+			"company": "Chiraj",
+			"from": "Sep-2000",
+			"till": "present",
+			"type": "FTE"
+		}
+	],
+	"topics": [
+		"java",
+		"kotlin",
+		"cs",
+		"linux"
+	],
+	"address": {
+		"city": "Chennai",
+		"country": "Country"
+	}
+}

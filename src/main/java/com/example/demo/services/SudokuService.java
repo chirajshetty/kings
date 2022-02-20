@@ -5,6 +5,7 @@ package com.example.demo.services;
 
 import org.springframework.stereotype.Service;
 
+import com.example.demo.sudoku.SudokuBoardGenerator;
 import com.example.demo.sudoku.SudokuSolver;
 
 /**
@@ -27,5 +28,10 @@ public class SudokuService implements ISudokuService {
 			return sudokuSolver.sudoku(board);
 		}
 		return sudokuSolver.sudoku();
+	}
+	
+	public int[][] getBoard() {
+		SudokuBoardGenerator boardGen = new SudokuBoardGenerator();
+		return boardGen.board();
 	}
 }
